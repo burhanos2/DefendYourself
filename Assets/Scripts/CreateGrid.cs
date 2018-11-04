@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test1 : MonoBehaviour {
+public class CreateGrid : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GridSystem gridSystem = new GridSystem();
-
-        print(gridSystem.width);
+       Grid _grid = new Grid(15,15);
+      //  _grid[,] = new Tile(new Vector2(0,0),);
 	}
 	
 	// Update is called once per frame
