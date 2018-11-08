@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile {
+//script borrowed but edited
 
-	public Tile(Vector2 position, string type = "default", bool isBlocking = false){
+public class myTile {
+    
+    enum tileTypes
+    {
+        Ground,
+        Tower,
+        Path,
+        EndPiece
+    };
+
+	public myTile (Vector2 position, string type = "default", bool isBlocking = false){
 		Position = position;
 		Type = type;
 		IsBlocking = isBlocking;

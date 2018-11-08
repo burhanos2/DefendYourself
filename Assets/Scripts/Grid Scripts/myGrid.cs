@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid
+//script borrowed but edited
+
+public class myGrid
 {
+    const float startPointX = -8.50f;
+    const float startPointY = 4.50f;
+
     /// <summary>
     /// The tiles for this grid.
     /// </summary>
-    private readonly Tile[,] _grid;
+    private readonly myTile[,] _grid;
 
     /// <summary>
     /// Constructor.
@@ -15,7 +20,7 @@ public class Grid
        <param name="width">Width of the grid (amount of columns)</param>
        <param name="height">Height of the grid (amount ofrows)</param> 
        */
-    public Grid(int width, int height)
+    public myGrid(int width, int height)
     {
         if (width < 0 || height < 0)
         {
@@ -25,14 +30,18 @@ public class Grid
         Width = width;
         Height = height;
 
-        _grid = new Tile[Width, Height];
+        _grid = new myTile[Width, Height];
 
         for (var x = 0; x < Width; x++)
         {
             for (var y = 0; y < Height; y++)
             {
                 var currentPosition = new Vector2(x, y);
-                _grid[x, y] = new Tile(currentPosition);
+                _grid[x, y] = new myTile(currentPosition);
+                GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
+                Tile.transform.position = new Vector3(startPointX + (tileDim.y*x) ,startPointY - (tileDim.x*y),0);
+
             }
         }
     }
@@ -53,7 +62,7 @@ public class Grid
     /// <param name="x">x position of the tile.</param>
     /// <param name="y">y position of the tile.</param>
     /// <returns></returns>
-    public Tile GetTile(int x, int y)
+    public myTile GetTile(int x, int y)
     {
 		// todo 1: ik return nu 'null'. Zorg ervoor dat jullie de Tile returnen die op plek x en y staat in ons grid
 
@@ -74,5 +83,7 @@ public class Grid
 
 		return true;
     }
-		
+	
+    
+ 
 }
