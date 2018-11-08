@@ -7,6 +7,7 @@ public class myGrid
 {
     const float startPointX = -8.50f;
     const float startPointY = 4.50f;
+    
 
     /// <summary>
     /// The tiles for this grid.
@@ -20,7 +21,7 @@ public class myGrid
        <param name="width">Width of the grid (amount of columns)</param>
        <param name="height">Height of the grid (amount ofrows)</param> 
        */
-    public myGrid(int width, int height)
+    public myGrid(int width, int height, Transform parent)
     {
         if (width < 0 || height < 0)
         {
@@ -39,6 +40,7 @@ public class myGrid
                 var currentPosition = new Vector2(x, y);
                 _grid[x, y] = new myTile(currentPosition);
                 GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                Tile.transform.SetParent(parent);
                 Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
                 Tile.transform.position = new Vector3(startPointX + (tileDim.y*x) ,startPointY - (tileDim.x*y),0);
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class myTile {
     
-    enum tileTypes
+   public enum tileTypes
     {
         Ground,
         Tower,
@@ -14,9 +14,9 @@ public class myTile {
         EndPiece
     };
 
-	public myTile (Vector2 position, string type = "default", bool isBlocking = false){
+	public myTile (Vector2 position, tileTypes type = tileTypes.Ground, bool isBlocking = false){
 		Position = position;
-		Type = type;
+        tileTypes Type = type;
 		IsBlocking = isBlocking;
 	}
 
