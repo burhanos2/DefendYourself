@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-//script borrowed but edited
+//script borrowed but heavily edited
+
 
 public class myGrid
 {
-    const float startPointX = -8.50f;
-    const float startPointY = 4.50f;
-    
+    const short startPointX = 0;
+    const short startPointY = 0;
+    private KillChildren kill = new KillChildren();
 
     /// <summary>
     /// The tiles for this grid.
@@ -32,18 +33,26 @@ public class myGrid
         Height = height;
 
         _grid = new myTile[Width, Height];
+        
 
-        for (var x = 0; x < Width; x++)
+        //if another grid exists, remove it and make it again.
+        if (parent.childCount != (Height * Width))
         {
-            for (var y = 0; y < Height; y++)
+            kill.Kill_All_Children(parent);
+            //kill all children before creating new ones
+            for (var x = 0; x < Width; x++)
             {
-                var currentPosition = new Vector2(x, y);
-                _grid[x, y] = new myTile(currentPosition);
-                GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                Tile.transform.SetParent(parent);
-                Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
-                Tile.transform.position = new Vector3(startPointX + (tileDim.y*x) ,startPointY - (tileDim.x*y),0);
-
+                for (var y = 0; y < Height; y++)
+                {
+                    var currentPosition = new Vector2(x, y);
+                    _grid[x, y] = new myTile(currentPosition);
+                    GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                    Tile.AddComponent<TileTypesClass>();
+                    Tile.transform.SetParent(parent);
+                    Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
+                    Tile.transform.position = new Vector3(startPointX + (tileDim.y * x), startPointY - (tileDim.x * y), 0);
+                    Debug.Log("children made");
+                }
             }
         }
     }
@@ -79,11 +88,26 @@ public class myGrid
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
-    public bool IsOnGrid(int x, int y)
+    public bool IsOnGrid(float x, float y)
     {
-		// todo: nu return ik altijd true. Zorg ervoor dat er echt gecheckt wordt of de x en y binnen het grid vallen
 
-		return true;
+        float xCalc = x;
+        float yCalc = y;
+
+        Debug.Log(xCalc);
+        Debug.Log(yCalc);
+
+        if( xCalc > Width   ||
+            xCalc < Width - Width  ||
+            yCalc < -Height  ||
+            yCalc > Height - Height )
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 	
     

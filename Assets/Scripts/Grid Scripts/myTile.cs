@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //script borrowed but edited
-
-public class myTile {
-    
-   public enum tileTypes
+public enum tileTypes
     {
         Ground,
         Tower,
+        BeginPath,
         Path,
-        EndPiece
-    };
+        EndPath
+    }
 
-	public myTile (Vector2 position, tileTypes type = tileTypes.Ground, bool isBlocking = false){
-		Position = position;
-        tileTypes Type = type;
+public class myTile {
+    
+	public myTile (Vector2 position, bool isBlocking = false){
+        Position = position;
 		IsBlocking = isBlocking;
 	}
 
-	public Vector2 Position { get; set; }
+	public Vector2 Position
+    {
+        get; set;
+        //get { return Position; }
+        //set { Position = value; }
+    }
 
-	public string Type { get; set; }
+	//public string Type { get; set; }
 
 	public bool IsBlocking { get; set; }
 }
