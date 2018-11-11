@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoint_Movement : MonoBehaviour {
-
+public class Waypoint_Movement : Waypoint_EndPoint {
+   
+    //floats
     [SerializeField]
     private float speed;
     private float _step;
-    private float angle;
 
+    //class instances
     private Waypoints points;
+    private readonly RotateTowards _rotate = new RotateTowards();
 
+    //transforms
     private Transform thisTransform;
 
+    //vectors
     private Vector3 dir;
     private Vector3 thisPos;
     private Vector3 _wayPointPos;
@@ -20,12 +24,10 @@ public class Waypoint_Movement : MonoBehaviour {
     private short i;
     // index of waypoints
 
-    RotateTowards _rotate;
 
     void Start()
     {
         thisTransform = this.transform;
-        _rotate = new RotateTowards();
         points = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
     }
 
@@ -34,7 +36,7 @@ public class Waypoint_Movement : MonoBehaviour {
         DoUpdate(); 
         
     }
-    // this update is going to be used by alot of enemies, this way the update only has one task to loop
+    // this update is going to be used by a lot of enemies, this way the update only has one task to loop
 
     private void DoUpdate()
     {
@@ -68,7 +70,7 @@ public class Waypoint_Movement : MonoBehaviour {
             }
             else
             {
-                DestroyImmediate(this.gameObject);
+                EndPoint(this.gameObject);
             }
         }
     }
