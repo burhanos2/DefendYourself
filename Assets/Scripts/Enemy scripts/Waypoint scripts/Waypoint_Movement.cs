@@ -17,12 +17,12 @@ public class Waypoint_Movement : Waypoint_EndPoint {
     private Transform thisTransform;
 
     //vectors
-    private Vector3 dir;
-    private Vector3 thisPos;
-    private Vector3 _wayPointPos;
+    private Vector3 dir,
+                    thisPos,
+                    _wayPointPos;
 
-    private short i;
-    // index of waypoints
+    //integers
+    private short i;   // index of waypoints
 
 
     void Start()
@@ -51,12 +51,7 @@ public class Waypoint_Movement : Waypoint_EndPoint {
     //functions under here
     private void Move_Towards()
         {
-               transform.position = Vector2.MoveTowards
-               (
-               thisPos,
-               _wayPointPos,
-               _step
-               );
+               transform.position = Vector2.MoveTowards(thisPos, _wayPointPos, _step);
         }
 
     private void PickNextPoint()
