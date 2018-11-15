@@ -8,8 +8,7 @@ public enum tileTypes
         Ground,
         Tower,
         BeginPath,
-        Path,
-        EndPath
+        Path
     }
 
 public class myTile {

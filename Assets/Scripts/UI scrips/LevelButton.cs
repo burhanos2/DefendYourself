@@ -4,20 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelButton : MonoBehaviour {
+public class LevelButton : MonoBehaviour{
 
-    void Start()
-    {
-
-    }
-
-    public void TaskOnClick(string nextSceneName)
+     public void TaskOnClick(string nextSceneName)
     {
         SceneManager.LoadScene(nextSceneName);
     }
      
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

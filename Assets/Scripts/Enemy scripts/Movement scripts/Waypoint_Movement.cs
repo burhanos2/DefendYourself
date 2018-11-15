@@ -5,8 +5,8 @@ using UnityEngine;
 public class Waypoint_Movement : Waypoint_EndPoint {
    
     //floats
-    [SerializeField]
-    private float speed;
+    
+    public float speed;
     private float _step;
 
     //class instances

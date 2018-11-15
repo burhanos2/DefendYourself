@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileOrder_Hori : MonoBehaviour {
+public class Health_points : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

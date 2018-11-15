@@ -13,7 +13,7 @@ public class myGrid
     /// <summary>
     /// The tiles for this grid.
     /// </summary>
-    private readonly myTile[,] _grid;
+    public readonly myTile[,] _grid;
 
     /// <summary>
     /// Constructor.
@@ -44,17 +44,11 @@ public class myGrid
             {
                 for (var y = 0; y < Height; y++)
                 {
-                    var currentPosition = new Vector2(x, y);
-                    _grid[x, y] = new myTile(currentPosition);
-                    GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                    Tile.AddComponent<TileTypesClass>();
-                    Tile.transform.SetParent(parent);
-                    Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
-                    Tile.transform.position = new Vector3(startPointX + (tileDim.y * x), startPointY - (tileDim.x * y), 0);
-                    Debug.Log("children made");
+                    CreateTile(parent, x, y);
                 }
             }
         }
+       
     }
 
     /// <summary>
@@ -75,7 +69,8 @@ public class myGrid
     /// <returns></returns>
     public myTile GetTile(int x, int y)
     {
-		// todo 1: ik return nu 'null'. Zorg ervoor dat jullie de Tile returnen die op plek x en y staat in ons grid
+       
+        // todo 1: ik return nu 'null'. Zorg ervoor dat jullie de Tile returnen die op plek x en y staat in ons grid
 
         // todo 2: bouw een check in of de x en y wel binnen het grid valt
 
@@ -110,6 +105,18 @@ public class myGrid
         }
     }
 	
-    
+    private void CreateTile(Transform parent, int x, int y)
+    {
+        var currentPosition = new Vector2(x, y);
+        _grid[x, y] = new myTile(currentPosition);
+        GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        Tile.AddComponent<TileTypesClass>();
+        Tile.transform.SetParent(parent);
+        Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
+        Tile.transform.position = new Vector3(startPointX + (tileDim.y * x), startPointY - (tileDim.x * y), 0);
+        Tile.AddComponent<mouseHover>();
+        Tile.AddComponent<ColorPicker>();
+        Debug.Log("children made");
+    }
  
 }
