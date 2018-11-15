@@ -31,7 +31,8 @@ public class Waypoint_Movement : Waypoint_EndPoint {
         points = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
     }
 
-    void Update()
+    //fixed update to keep it fair
+    private void FixedUpdate()
     {
         DoUpdate(); 
         

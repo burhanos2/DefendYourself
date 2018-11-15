@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Waypoints
+  - Bullet
+  - Tower
+  - Turret
+  - Enemy
+  - DeathSound
   layers:
   - Default
   - TransparentFX

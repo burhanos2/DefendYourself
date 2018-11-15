@@ -8,7 +8,7 @@ public class myGrid
 {
     const short startPointX = 0;
     const short startPointY = 0;
-    private KillChildren kill = new KillChildren();
+    private KillChildren kill = ScriptableObject.CreateInstance<KillChildren>();
 
     /// <summary>
     /// The tiles for this grid.

@@ -7,7 +7,7 @@ public class TargetFollower : MonoBehaviour
     [SerializeField]
     private Transform _target;
     [SerializeField]
-    private float _Xoffset, _Yoffset, _Zoffset;
+    private float _Xoffset = 0, _Yoffset = 0, _Zoffset = 0;
   
     private Vector3 _offset;
 

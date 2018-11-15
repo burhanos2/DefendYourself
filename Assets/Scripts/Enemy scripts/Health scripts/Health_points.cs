@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health_points : MonoBehaviour {
+public class Health_points : MonoBehaviour{
+    private int health = 5;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int getHealth
+    {   get { return health; }
+        set { health = value; }
+    }
+    
 }

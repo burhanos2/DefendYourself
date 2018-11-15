@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillChildren : MonoBehaviour {
+public class KillChildren : ScriptableObject {
 
 
     public void Kill_All_Children(Transform parent)
