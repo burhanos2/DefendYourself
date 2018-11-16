@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mouseHover : MonoBehaviour {
+public class mouseHoverColor : MonoBehaviour {
 
     private Color hoverColor;
     private Color startColor;
@@ -14,10 +14,6 @@ public class mouseHover : MonoBehaviour {
         rend.material.color = hoverColor;
     }
 
-    private void OnMouseOver()
-    {
-       
-    }
 
     private void OnMouseExit()
     {

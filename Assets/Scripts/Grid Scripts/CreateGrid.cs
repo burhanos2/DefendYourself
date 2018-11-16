@@ -11,16 +11,17 @@ public class CreateGrid : MonoBehaviour {
     private short grid_height;
     private Transform _thistransform;
 
-    private myGrid level_grid;
+    public myGrid level_grid;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         _thistransform = GetComponent<Transform>();
 
+        print("ik ga hem aanmaken");
        level_grid = new myGrid(grid_width, grid_height, _thistransform);
         //  _grid[,] = new Tile(new Vector2(0,0),);
 
-        print(level_grid.IsOnGrid(9, -4));
+        
 
 
     }

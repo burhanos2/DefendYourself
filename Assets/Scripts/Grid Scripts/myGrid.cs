@@ -33,21 +33,27 @@ public class myGrid
         Height = height;
 
         _grid = new myTile[Width, Height];
-        
 
-        //if another grid exists, remove it and make it again.
-        if (parent.childCount != (Height * Width))
-        {
-            kill.Kill_All_Children(parent);
-            //kill all children before creating new ones
             for (var x = 0; x < Width; x++)
             {
                 for (var y = 0; y < Height; y++)
                 {
-                    CreateTile(parent, x, y);
+
+                    var currentPosition = new Vector2(x, y);
+                    _grid[x, y] = new myTile(currentPosition);
+
+
+
+                //if another grid exists, remove it and make it again
+                    if (parent.childCount != (Height * Width))
+                    {
+                       kill.Kill_All_Children(parent);
+                       //kill all children before creating new ones
+                       CreateTile(parent, x, y);
+                    }
                 }
             }
-        }
+        
        
     }
 
@@ -69,12 +75,11 @@ public class myGrid
     /// <returns></returns>
     public myTile GetTile(int x, int y)
     {
-       
+
         // todo 1: ik return nu 'null'. Zorg ervoor dat jullie de Tile returnen die op plek x en y staat in ons grid
 
         // todo 2: bouw een check in of de x en y wel binnen het grid valt
-
-        return null;
+        return _grid[x, y];
     }
 
     /// <summary>
@@ -106,15 +111,14 @@ public class myGrid
     }
 	
     private void CreateTile(Transform parent, int x, int y)
-    {
-        var currentPosition = new Vector2(x, y);
-        _grid[x, y] = new myTile(currentPosition);
+    { 
         GameObject Tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
         Tile.AddComponent<TileTypesClass>();
         Tile.transform.SetParent(parent);
         Vector3 tileDim = Tile.GetComponent<Renderer>().bounds.size;
         Tile.transform.position = new Vector3(startPointX + (tileDim.y * x), startPointY - (tileDim.x * y), 0);
-        Tile.AddComponent<mouseHover>();
+        Tile.AddComponent<mouseHoverColor>();
+        Tile.AddComponent<mouseClickTowerPlacing>();
         Tile.AddComponent<ColorPicker>();
         Debug.Log("children made");
     }
