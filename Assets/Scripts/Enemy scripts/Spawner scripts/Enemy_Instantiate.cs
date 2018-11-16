@@ -8,8 +8,7 @@ public class Enemy_Instantiate : MonoBehaviour {
 
     [SerializeField]
     private GameObject enemy;
-
-	// Use this for initialization
+    
 	void Start () {
         Invoke("CreateEnemy", waitTime);
     }

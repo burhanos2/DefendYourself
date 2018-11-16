@@ -19,15 +19,14 @@ public class mouseHoverColor : MonoBehaviour {
     {
         rend.material.color = startColor;
     }
-
-    // Use this for initialization
+    
     void Start () {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         hoverColor = startColor + Color.white;
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 		
 	}

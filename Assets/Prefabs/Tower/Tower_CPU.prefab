@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73ee5f11ee381b41965c6ac2b0829eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0.5
+  waitTime: 0.7
   bullet: {fileID: 1537639228728480, guid: 960314c79c9dba148bb8786ca76ccfda, type: 2}
   firePoint: {fileID: 4239636545205462}
 --- !u!212 &212682658011684764

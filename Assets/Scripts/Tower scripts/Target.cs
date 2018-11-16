@@ -23,9 +23,6 @@ public class Target : MonoBehaviour
             enemyCount.Add(collision.gameObject);
             Waypoint_Movement enemyWpoints = collision.GetComponent<Waypoint_Movement>();
             velocity = enemyWpoints.speed;
-
-
-            print(enemyCount[0]);
         }
     }
 
@@ -72,10 +69,7 @@ public class Target : MonoBehaviour
     }
 
 
-    public float GetVelocityOfEnemy
-    {
-        get { return velocity; }
-    }
+    public float GetVelocityOfEnemy { get { return velocity; } }
 
     public Vector3 PositionOfEnemy
     {

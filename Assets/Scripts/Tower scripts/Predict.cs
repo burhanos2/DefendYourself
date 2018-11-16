@@ -13,13 +13,11 @@ public class Predict : MonoBehaviour {
 
     private Vector3 dir;
 
-	// Use this for initialization
 	void Start () {
         target = gameObject.GetComponent<Target>();
         bullet = gameObject.AddComponent<Bullet_Controller>();
 	}
 
-    // Update is called once per frame
     private void Update()
     {
         DoVelSpaceTimeCalc();
@@ -44,7 +42,6 @@ public class Predict : MonoBehaviour {
         }
     }
 
-    public float GetSpace
-    { get { return space; } }
+    public float GetSpace { get { return space; } }
 
 }

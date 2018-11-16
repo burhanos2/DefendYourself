@@ -4,12 +4,5 @@ using UnityEngine;
 
 public class Money_count : MonoBehaviour
 {
-    private int money = 60;
-
-    public int getMoney
-    {
-        get { return money; }
-        set { money = value; }
-    }
-
+    public static int money = 120;
 }

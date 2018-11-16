@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet_Controller : MonoBehaviour
 {
-    public float _bulletSpeed = 0.1f;
+    [HideInInspector]
+    public float _bulletSpeed = 0.045f;
     private Vector3 dir;
 
     private void Start()

@@ -10,12 +10,12 @@ public class mouseClickTowerPlacing : MonoBehaviour
                 intY;
     [SerializeField]
     private GameObject Tower;
-    
+
+    private short Towercost = 60;
 
     private void Start()
     { 
         create_grid = gameObject.GetComponentInParent<CreateGrid>();
-        print("ik haal hem op");
         grid = create_grid.level_grid;
 
 
@@ -24,43 +24,38 @@ public class mouseClickTowerPlacing : MonoBehaviour
         intX = Mathf.FloorToInt(gameObject.transform.localPosition.x);
     }
 
-    private void OnMouseUpAsButton()
+    private void OnMouseOver()
     {
         CheckButton();
     }
 
     private void CheckButton()
     {
-        if (Input.GetMouseButtonUp(0))//check left click
+        if (Input.GetMouseButtonUp(0) && grid.GetTile(intX, intY).IsBlocking == false)//check left click
         {
-            if (grid.GetTile(intX, intY).IsBlocking == false)
-            {
                 PlaceTower();
-            }
         }
-        else if (Input.GetMouseButtonUp(1))//check right click
+        if (Input.GetMouseButtonUp(1) && grid.GetTile(intX, intY).IsBlocking == true)//check right click
         {
-            if (grid.GetTile(intX, intY).IsBlocking == true)
-            {
                 RemoveTower();
-            }
         }
     }
 
     private void PlaceTower()
     {
-        grid.GetTile(intX, intY).IsBlocking = true;
-        Instantiate(Tower, transform);
+        if(Money_count.money >= 60)
+        {
+            Money_count.money -= Towercost;
+            grid.GetTile(intX, intY).IsBlocking = true;
+            Instantiate(Tower, transform);
+        }
 
     }
 
     private void RemoveTower()
     {
         grid.GetTile(intX, intY).IsBlocking = false;
-    }
-
-    private void OnMouseOver()
-    {
-        print(grid.GetTile(intX, intY).IsBlocking);
+        grid.kill.Kill_All_Children(gameObject.transform);
+        Money_count.money += (Towercost/2);
     }
 }

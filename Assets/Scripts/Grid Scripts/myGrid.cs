@@ -8,7 +8,7 @@ public class myGrid
 {
     const short startPointX = 0;
     const short startPointY = 0;
-    private KillChildren kill = ScriptableObject.CreateInstance<KillChildren>();
+    public KillChildren kill = ScriptableObject.CreateInstance<KillChildren>();
 
     /// <summary>
     /// The tiles for this grid.
@@ -93,9 +93,7 @@ public class myGrid
 
         float xCalc = x;
         float yCalc = y;
-
-        Debug.Log(xCalc);
-        Debug.Log(yCalc);
+        
 
         if( xCalc > Width   ||
             xCalc < Width - Width  ||

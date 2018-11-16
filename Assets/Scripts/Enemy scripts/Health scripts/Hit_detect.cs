@@ -8,6 +8,8 @@ using UnityEngine;
 public class Hit_detect : MonoBehaviour {
     private Health_points hPoints;
 
+    private short rewardMoney = 10;
+
     [SerializeField]
     private AudioSource hitSound, deathSound;
 
@@ -23,19 +25,17 @@ public class Hit_detect : MonoBehaviour {
         }
     }
 
-
-    // Use this for initialization
+    
     void Start () {
         hPoints = gameObject.GetComponent<Health_points>();
         deathSound = GameObject.FindGameObjectWithTag("DeathSound").GetComponent<AudioSource>();
     }
 	
-	// Update is called once per frame
 	void Update () {
         if(hPoints.getHealth == 0)
         {
             //death
-
+            Money_count.money += rewardMoney;
             deathSound.Play();
             DestroyImmediate(gameObject);
             
