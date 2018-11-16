@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 114239798688106352}
   m_Layer: 0
   m_Name: Waypoints
-  m_TagString: Tower
+  m_TagString: Waypoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

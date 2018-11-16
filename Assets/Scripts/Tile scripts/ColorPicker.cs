@@ -13,7 +13,7 @@ public class ColorPicker : MonoBehaviour {
         switch(thisType.objectType)
         {
             case tileTypes.Ground:
-                rend.material.color = Color.gray;   
+                //keep default color
                 break;
             case tileTypes.Tower:
                 rend.material.color = Color.yellow;
@@ -22,7 +22,7 @@ public class ColorPicker : MonoBehaviour {
                 rend.material.color = Color.red;
                 break;
             case tileTypes.Path:
-
+                rend.material.color = Color.gray;
                 break;
 
         }
