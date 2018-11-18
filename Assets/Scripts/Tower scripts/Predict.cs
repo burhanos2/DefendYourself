@@ -13,7 +13,10 @@ public class Predict : MonoBehaviour {
 
     private Vector3 dir;
 
+    private Transform firePoint;
+
 	void Start () {
+        firePoint = GetComponentInChildren<Transform>();
         target = gameObject.GetComponent<Target>();
         bullet = gameObject.AddComponent<Bullet_Controller>();
 	}
@@ -31,7 +34,7 @@ public class Predict : MonoBehaviour {
     {
         if (target.enemyCount.Count != 0)
         { 
-           dir = target.PositionOfEnemy - transform.position;
+           dir = target.PositionOfEnemy - firePoint.transform.position;
           _distance = Mathf.Atan2(dir.y, dir.x);
 
           velocity = target.GetVelocityOfEnemy;
