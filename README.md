@@ -1,5 +1,5 @@
 # DefendYourself
-Burhan en Suryani doen wat
+Burhan and Suryani.
 
 Tower defense game
 
